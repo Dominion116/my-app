@@ -27,12 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}
       >
         <AppSideNavBar />
-        <main>
+        <main className="w-full"> 
           <NavBar />
-          {children}
+          <div className="px-4">{children}</div>
         </main>
       </body>
     </html>
