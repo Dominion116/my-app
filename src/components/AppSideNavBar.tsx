@@ -10,11 +10,27 @@ import {
   SidebarMenuButton,
   SidebarGroupContent,
   SidebarSeparator,
+  SidebarTrigger,
+  SidebarGroupAction,
 } from "@/components/ui/sidebar";
-import { Home, Settings, Inbox, Calendar, Search, User2, ChevronUp } from "lucide-react";
+import {
+  Home,
+  Settings,
+  Inbox,
+  Calendar,
+  Search,
+  User2,
+  ChevronUp,
+  Plus,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,  } from "@radix-ui/react-dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const items = [
   {
@@ -46,13 +62,18 @@ const items = [
 
 const AppSideNavBar = () => {
   return (
-    <Sidebar>
-      <SidebarHeader>
+    <Sidebar collapsible="icon">
+      <SidebarHeader py-4>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/">
-                <Image src="/img/dominionlipfp.jpg" alt="Logo" width={20} height={20} />
+                <Image
+                  src="/img/dominionlipfp.jpg"
+                  alt="Logo"
+                  width={20}
+                  height={20}
+                />
                 <span>Lama Dev</span>
               </Link>
             </SidebarMenuButton>
@@ -60,9 +81,8 @@ const AppSideNavBar = () => {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarSeparator />
-
       <SidebarContent>
+        <SidebarSeparator />
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -79,6 +99,17 @@ const AppSideNavBar = () => {
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* Teams Group with Action Button */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Projects</SidebarGroupLabel>
+          <SidebarGroupAction title="Add Project">
+            <Plus /> <span className="sr-only">Add Project</span>
+              <SidebarGroupContent>
+              
+              </SidebarGroupContent>
+          </SidebarGroupAction>
         </SidebarGroup>
       </SidebarContent>
 
